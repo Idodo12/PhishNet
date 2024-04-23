@@ -1,2 +1,2 @@
-# Project-rename-later-
-Great Project!
+# PhishNet
+Phishing detector or someshit
