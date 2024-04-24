@@ -1,2 +1,2 @@
 # PhishNet
-Phishing detector or someshit
+Phishing detector chrome extension made with the gmail api
