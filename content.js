@@ -1,5 +1,6 @@
 const { pipeline } = require("@huggingface/transformers");
 
+let emailOpened = false;
 
 async function isPhishing(content) {
     try {
@@ -14,19 +15,23 @@ async function isPhishing(content) {
 }
 
 function printEmailContent() {
-    const emailBodies = document.querySelectorAll('div[role="listitem"] div[dir="ltr"]');
+    if (!emailOpened) {
+        emailOpened = true
+        
+        const emailBodies = document.querySelectorAll('div[role="listitem"] div[dir="ltr"]');
 
-    if (emailBodies.length > 0) {
-        console.log("Email Content:");
-        emailBodies.forEach(async body => {
-            const content = body.innerText;
-            const isPhishingContent = await isPhishing(content);
-            if (isPhishingContent) {
-                alert("Phishing detected!");
-            }
-        });
-    } else {
-        console.log("no email content found");
+        if (emailBodies.length > 0) {
+            console.log("Email Content:");
+            emailBodies.forEach(async body => {
+                const content = body.innerText;
+                const isPhishingContent = await isPhishing(content);
+                if (isPhishingContent) {
+                    alert("Phishing detected!");
+                }
+            });
+        } else {
+            console.log("no email content found");
+        }
     }
 }
 
@@ -35,6 +40,8 @@ const observer = new MutationObserver((mutations, obs) => {
 
     if (viewElement) {
         printEmailContent();
+    } else {
+        emailOpened = false;  
     }
 });
 
