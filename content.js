@@ -25,7 +25,7 @@ function printEmailContent() {
                 }, 0);
 
                 if (keywordCount >= 2) {
-                    alert("Phishing detected!");
+                    alert("Warning: Suspicious Email Detected! This message contains multiple trigger words commonly used in phishing attacks. Please proceed with caution and verify the source before responding or clicking on any links.");
                 }
             });
         } else {
