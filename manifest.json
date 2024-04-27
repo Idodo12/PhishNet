@@ -6,9 +6,6 @@
       "activeTab",
       "scripting"
     ],
-    "background": {
-      "service_worker": "background.js"
-    },
     "content_scripts": [
       {
         "matches": ["*://mail.google.com/*"],
