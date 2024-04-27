@@ -1,5 +1,4 @@
-# PhishNet
-A Phishing detector chrome extension 
+# PhishNet - A Phishing detector chrome extension 
 
 ## How to Use
 
